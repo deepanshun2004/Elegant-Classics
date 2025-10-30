@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Car Gallery</title>
+    <style>
+        /* General Styles */
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #2f042e;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #2f042e;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo styles */
+.nav__logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo a {
+    color: #C4A484;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo img {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+
+/* Navigation links */
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__links li {
+    margin: 0;
+}
+
+.nav__links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: color 0.3s;
+}
+
+.nav__links a:hover {
+    color: #BC9F8B;
+}
+
+.nav__links a:active {
+    color: #A37F6C;
+}
+
+/* Button styles */
+.btn {
+    background-color: #BC9F8B;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #A37F6C;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .nav__links li {
+        width: 100%;
+    }
+
+    .nav__links a {
+        display: block;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav__logo a {
+        font-size: 20px;
+    }
+
+    .nav__logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .nav__links a {
+        font-size: 14px;
+    }
+}
+/* Container styles */
+/* Container styles */
+.container {
+    display: flex;
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 20%;
+    background-color: #C4A484;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2f042e;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #2f042e;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #ff5a5f;
+}
+
+/* Main content styles */
+.main-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section__header {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin: 20px 0 0 0; /* Add top margin for spacing */
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+/* Additional mobile optimization */
+@media (max-width: 480px) {
+    .sidebar {
+        margin-top: 15px; /* Adjust top margin for smaller screens */
+    }
+
+    .sidebar,
+    .main-content {
+        padding: 15px;
+    }
+
+    .section__header {
+        font-size: 24px;
+    }
+}
+
+/* Ensure space below navbar */
+header {
+    margin-bottom: 20px; /* Add space below the navbar */
+}
+
+@media (max-width: 768px) {
+    header {
+        margin-bottom: 15px; /* Adjust space for mobile */
+    }
+}
+/* Responsive styles */
+
+.main-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.section__header {
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 0;
+    color: #333;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.car {
+    background-color: #C4A484;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    overflow: hidden;
+    width: 100%;
+    color: #2f042e;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.car:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.car img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-details {
+    padding: 15px;
+}
+
+.car-details h2 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #2f042e;
+}
+
+.car-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: black;
+}
+
+.car-details .price {
+    color: whitesmoke;
+    background-color: #2f042e;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #2f042e;
+    border-radius: 5px;
+    padding: 5px;
+    display: inline-block;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.car-details .price:hover {
+    color: wheat;
+    background-color: #2f042e;
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        width: 90%;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section__header {
+        font-size: 26px;
+    }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+    .main-content {
+        width: 95%;
+    }
+
+    .section__header {
+        font-size: 24px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Change to single column */
+        gap: 15px;
+    }
+
+    .car {
+        margin: 10px 0;
+    }
+
+    .car img {
+        height: 180px;
+    }
+
+    .car-details h2 {
+        font-size: 20px;
+    }
+
+    .car-details p {
+        font-size: 14px;
+    }
+
+    .car-details .price {
+        font-size: 18px;
+    }
+}
+
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:wheat;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup h2 {
+    color: #2f042e;
+    margin-bottom: 15px;
+}
+
+.popup p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.popup .price {
+    color: #2f042e;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.popup .btn {
+    background-color: #2f042e;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.popup .btn:hover {
+    background-color: #2f042e;
+}
+
+.popup .close {
+    display: none;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin: 0;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+   
+}
+
+
+
+
+        footer {
+            background-color: #2f042e;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer h4 {
+    margin: 10px 0;
+    color: #BC9F8B;
+    text-align: left;
+}
+
+
+        footer .footer__links {
+            list-style: none;
+            padding: 0;
+            color: aquamarine;
+        }
+
+        
+
+        footer .footer__links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer .footer__links a:hover {
+            color: #ff5a5f;
+        }
+
+        footer .footer__bar {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        footer .footer__socials {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        footer .footer__socials a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        footer .footer__socials a:hover {
+            color: #ff5a5f;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: whitesmoke;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup h2 {
+            color: #2f042e;
+            margin-bottom: 15px;
+        }
+
+        .popup p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .popup .price {
+            color: #2f042e;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .popup .btn {
+            background-color: #2f042e;
+            border: none;
+            
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .popup .btn:hover {
+            background-color: #2f042e;
+        }
+
+        .popup .close {
+            display: none;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        /* Banner Container Styles */
+/* Banner Container */
+.banner__container {
+    padding-block: 2rem;
+    overflow: hidden;
+    max-width: 100vw;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Wrapper Styles */
+.banner__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    animation: scroll 45s linear infinite;
+    width: max-content;
+}
+
+/* Restrict Image Sizes */
+.banner__wrapper img {
+    height: 100px;
+    width: auto;
+    max-width: 200px;
+}
+
+/* Keyframes for Scrolling */
+@keyframes scroll {
+    to {
+        transform: translateX(calc(-50% - 2rem));
+    }
+}
+
+/* Ensure the main content doesn't get pushed */
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .banner__container {
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+    }
+    
+    .banner__wrapper {
+        display: none !important;
+    }
+}
+
+/* Additional failsafe for very small screens */
+@media screen and (max-width: 480px) {
+    .banner__container,
+    .banner__wrapper {
+        display: none !important;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+    }
+}
+
+#back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #C4A484;
+            color: #2f042e;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            display: none;
+        }
+.text {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  background-image: linear-gradient(109.6deg, rgba(47, 4, 46, 1) 11.2%, rgba(51, 8, 103, 1) 92.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: brightness(1.85);
+  
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">
+                <a href="index.html">
+                    <img src="Untitled-removebg-preview.png" alt="Elegant Classics Logo"> Elegant Classics
+                </a>
+            </div>
+            <ul class="nav__links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Rent</a></li>
+                
+                
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <section class="banner__container"></section>
+        <div class="banner__wrapper">
+          <img src="banner-1.png" alt="banner" />
+          <img src="banner-2.png" alt="banner" />
+          <img src="banner-3.png" alt="banner" />
+          <img src="Toyota-Symbol-removebg-preview.png" alt="banner" />
+          <img src="banner-5.png" alt="banner" />
+          <img src="banner-6.png" alt="banner" />
+          <img src="banner-7.png" alt="banner" />
+          <img src="banner-8.png" alt="banner" />
+          <img src="Chevrolet-Logo-2010-removebg-preview.png" alt="banner" />
+          <img src="ford-logo-1-preview-removebg-preview.png" alt="banner" />
+        </div>
+      </section>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Popular Searches</h2>
+            <ul>
+                <li><a href="#">Vintage Luxury</a></li>
+                <li><a href="#">Vintage SUV</a></li>
+                <li><a href="#">Vintage Sedan</a></li>
+                <li><a href="#">Vintage Ford</a></li>
+                <li><a href="#">Vintage Mustang</a></li>
+            
+                <h2>Best Seller</h2>
+                <ul>
+                    <li><a href="#">Ford Mustang</a></li>
+                    <li><a href="#">Ford Thunderbird</a></li>
+                    <li><a href="#">Shelby Cobra</a></li>
+                    <li><a href="#">Chevrolet Malibu</a></li>
+                </ul>
+            </aside>
+        <main class="main-content">
+            <section class="section">
+                <h1 class="text" >Choose your Car!</h1>
+                <div class="gallery">
+                    <div class="car" onclick="showPopup('1967 Ford Mustang', ' Petrol &#8226 5 Seater&#8226 Manual&#8226' , '₹11000/Day')">
+                        <img src="image-removebg-preview.png" alt="1967 Ford Mustang">
+                        <div class="car-details">
+                            <h2>1967 Ford Mustang</h2>
+                            <p>A classic muscle car with powerful performance and iconic design.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 4</li>
+                                <li><strong>Transmission:</strong> Manual</li>
+                                <li><strong>Engine:</strong> V8</li>
+                                <li><strong>Top Speed:</strong> 130 mph</li>
+                            </ul>
+                            <p class="price">₹11000/Day</p>
+                        </div>
+                    </div>
+                    
+                    <div class="car" onclick="showPopup('1962 Ford Thunderbird', 'A symbol of elegance and luxury with a smooth ride and advanced features. Fuel Type: Petrol, Seating Capacity: 4, Transmission: Automatic, Engine: V8, Top Speed: 115 mph', '₹8000/Day')">
+                        <img src="chevelle-removebg-preview.png" alt="1962 Ford Thunderbird">
+                        <div class="car-details">
+                            <h2>1962 Ford Thunderbird</h2>
+                            <p>A symbol of elegance and luxury with a smooth ride and advanced features.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 4</li>
+                                <li><strong>Transmission:</strong> Automatic</li>
+                                <li><strong>Engine:</strong> V8</li>
+                                <li><strong>Top Speed:</strong> 115 mph</li>
+                            </ul>
+                            <p class="price">₹8000/Day</p>
+                        </div>
+                    </div>
+                    
+                    <div class="car" onclick="showPopup('1965 Shelby Cobra', 'A legendary sports car with a lightweight body and high-performance engine. Fuel Type: Petrol, Seating Capacity: 2, Transmission: Manual, Engine: V8, Top Speed: 150 mph', '₹6000/Day')">
+                        <img src="dodge-removebg-preview.png" alt="1965 Shelby Cobra">
+                        <div class="car-details">
+                            <h2>1965 Shelby Cobra</h2>
+                            <p>A legendary sports car with a lightweight body and high-performance engine.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 2</li>
+                                <li><strong>Transmission:</strong> Manual</li>
+                                <li><strong>Engine:</strong> V8</li>
+                                <li><strong>Top Speed:</strong> 150 mph</li>
+                            </ul>
+                            <p class="price">₹6000/Day</p>
+                        </div>
+                    </div>
+                    
+                    <div class="car" onclick="showPopup('1957 Ford Thunderbird', 'A classic American car known for its style, power, and comfort. Fuel Type: Petrol, Seating Capacity: 2, Transmission: Automatic, Engine: V8, Top Speed: 120 mph', '₹7500/Day')">
+                        <img src="thunderbird-removebg-preview.png" alt="1957 Ford Thunderbird">
+                        <div class="car-details">
+                            <h2>1957 Ford Thunderbird</h2>
+                            <p>A classic American car known for its style, power, and comfort.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 2</li>
+                                <li><strong>Transmission:</strong> Automatic</li>
+                                <li><strong>Engine:</strong> V8</li>
+                                <li><strong>Top Speed:</strong> 120 mph</li>
+                            </ul>
+                            <p class="price">₹7500/Day</p>
+                        </div>
+                    </div>
+                    
+                    <div class="car" onclick="showPopup('1977 Ford F-150 Ranger 4WD', 'A rugged truck with off-road capabilities and a durable build. Fuel Type: Petrol, Seating Capacity: 3, Transmission: Manual, Engine: V8, Top Speed: 100 mph', '₹5000/Day')">
+                        <img src="rabnger-removebg-preview.png" alt="1977 Ford F-150 Ranger 4WD">
+                        <div class="car-details">
+                            <h2>1977 Ford F-150 Ranger 4WD</h2>
+                            <p>A rugged truck with off-road capabilities and a durable build.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 3</li>
+                                <li><strong>Transmission:</strong> Manual</li>
+                                <li><strong>Engine:</strong> V8</li>
+                                <li><strong>Top Speed:</strong> 100 mph</li>
+                            </ul>
+                            <p class="price">₹5000/Day</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="car" onclick="showPopup('Mercedes-Benz 280SL', 'A luxury convertible with a smooth ride and elegant design. Fuel Type: Petrol, Seating Capacity: 2, Transmission: Automatic, Engine: Inline-6, Top Speed: 130 mph', '₹11000/Day')">
+                        <img src="mer-removebg-preview.png" alt="Mercedes-Benz 280SL">
+                        <div class="car-details">
+                            <h2>Mercedes-Benz 280SL</h2>
+                            <p>A luxury convertible with a smooth ride and elegant design.</p>
+                            <ul class="car-specs">
+                                <li><strong>Fuel Type:</strong> Petrol</li>
+                                <li><strong>Seating Capacity:</strong> 2</li>
+                                <li><strong>Transmission:</strong> Automatic</li>
+                                <li><strong>Engine:</strong> Inline-6</li>
+                                <li><strong>Top Speed:</strong> 130 mph</li>
+                            </ul>
+                            <p class="price">₹11000/Day</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+    <button id="back-to-top">↑</button>
+    <div id="popup-overlay" class="popup-overlay"></div>
+    <div id="popup" class="popup">
+        <h2 id="popup-title">Car Title</h2>
+        <p id="popup-description">Car description goes here.</p>
+        <p id="popup-price" class="price">Price goes here.</p>
+        <a href="rent-details.html" class="btn">Book</a>
+    </div>
+
+    <footer>
+        <h4>Elegant Classics</h4>
+        
+        <div class="footer__bar">
+            <ul class="footer__socials">
+                <li><a href="#"><i class="ri-facebook-line"></i></a></li>
+                <li><a href="#"><i class="ri-twitter-line"></i></a></li>
+                <li><a href="#"><i class="ri-instagram-line"></i></a></li>
+            </ul>
+        </div>
+        <p>&copy; 2023 Elegant Classics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPopup(title, description, price) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('popup-price').innerText = price;
+            document.getElementById('popup-overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup-overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+        const banner = document.querySelector(".banner__wrapper");
+
+const bannerContent = Array.from(banner.children);
+
+bannerContent.forEach((item) => {
+  const duplicateNode = item.cloneNode(true);
+  duplicateNode.setAttribute("aria-hidden", true);
+  banner.appendChild(duplicateNode);
+});
+const backToTopButton = document.getElementById('back-to-top');
+
+        // Show/hide button when scrolling
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when button is clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+    </script>
+</body>
+
+</html>

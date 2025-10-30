@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Elegant Classics</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('h.avif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: gainsboro;
+        }
+
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2f042e;
+    z-index: 200;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .logo img {
+    height: 40px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between the logo and text */
+}
+
+header .logo-name {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: 600;
+    color: #C4A484;
+}
+
+header nav {
+    flex: 1;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    color: #C4A484;
+    text-decoration: none;
+}
+
+header .nav-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--container-color);
+        width: 100%;
+        display: none;
+    }
+
+    header nav.active ul {
+        display: flex;
+    }
+
+    header .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    header .nav-toggle i {
+        color: var(--bg-color);
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header .logo-name {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--container-color);
+        width: 100%;
+        display: none;
+    }
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #C4A484;
+        color: #2f042e;
+        border: none;
+        border-radius: 50%;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 20px;
+        display: none;
+    }
+    header nav.active ul {
+        display: flex;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header .login {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle i {
+        color: var(--bg-color);
+        font-size: 1.5rem;
+    }
+}
+
+
+        
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-container {
+            padding: 20px;
+        }
+
+        .contact-form-container h2 {
+            color: #2f042e;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #2f042e;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group button {
+            background-color: #C4A484;
+            border: none;
+            color: #2f042e;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #a89074;
+        }
+
+        .cta-button {
+            background-color: #2f042e;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: #451a44;
+        }
+
+        footer {
+  background-color:#2f042e;
+}
+
+.footer__container {
+  display: grid;
+  gap: 4rem 2rem;
+  border-bottom: 1px solid var(--text-light);
+}
+
+.footer__col h4 {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  color: #C4A484;
+}
+
+.footer__links {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links a {
+  color: #C4A484;
+}
+
+.footer__links a:hover {
+  color: #fff;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer__socials a {
+  padding: 8px 12px;
+  font-size: 1.25rem;
+  color: #C4A484;
+  border: 2px solid #C4A484;
+  border-radius: 100%;
+}
+
+.footer__socials a:hover {
+  color:#C4A484;
+  border-color: #C4A484;
+}
+
+.footer__bar {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #C4A484;
+  text-align: center;
+}
+
+
+
+
+@media (width > 768px) {
+  
+
+
+ 
+
+  .footer__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #C4A484;
+            color: #2f042e;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            display: none;
+        }
+        .section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 3rem 1rem;
+}
+        
+.banner__container {
+    display: flex; 
+    gap: 2rem;
+    justify-content: space-between; 
+    margin-top: 10rem;
+}
+
+.banner__card {
+    flex: 1; 
+    padding: 1rem 2rem;
+    text-align: center;
+    background-color: wheat;
+    border-radius: 2rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 1rem; 
+}
+
+
+@media (max-width: 768px) {
+    .banner__container {
+        flex-direction: column; 
+        align-items: center;
+        margin-top: 2rem;
+    }
+    
+    .banner__card {
+        margin: 1rem 0; 
+    }
+}
+.banner__card h4 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #451a44;
+}
+
+.banner__card p {
+  color: #2f042e;
+}
+.section__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+
+.testimonials__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  
+}
+
+.card {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  background-color: #C4A484;
+  border-radius: 5px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.card i {
+  font-size: 2.5rem;
+  color: wheat;
+}
+
+.card p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card hr {
+  width: 40px;
+  margin: auto;
+  color: #2f042e;
+}
+
+.card img {
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  border-radius: 100%;
+  border: 1px solid #2f042e;
+}
+
+.card .name {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #451a44;
+  transition: 0.3s;
+}
+
+.card .name:hover {
+  color: #2f042e;
+}
+
+
+
+@media (width < 900px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (width < 600px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.phone-contact {
+    font-size: 18px;
+    color: #2f042e;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.phone-contact i {
+    margin-right: 8px;
+    color: #C4A484;
+    font-size: 24px;
+}
+
+    </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+        <a href="index.html" class="logo">
+            <img src="Untitled-removebg-preview.png" alt="Elegant-Classics Logo" />
+            <span class="logo-name">Elegant-Classics</span>
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Rent</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contactus.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="nav-toggle">
+            <i class="bx bx-menu"></i>
+        </div>
+    </div>
+</header>
+    <section class="section__container banner__container">
+        <div class="banner__card">
+          <strong><h4>10+</h4></strong>
+          <p>Years Experience</p>
+        </div>
+        <div class="banner__card">
+          <strong><h4>12K</h4></strong>
+          <p>Happy Clients</p>
+        </div>
+        <div class="banner__card">
+          <strong><h4>4.8</h4></strong>
+          <p>Overall Ratings</p>
+        </div>
+      </section>
+      
+      <section class="section__container">
+        <h2 class="section__title" style="color: wheat; font-size: 75px;">What Our Clients Say</h2>
+        <div class="testimonials__grid">
+           
+            <div class="card">
+                <i class="ri-chat-3-line"></i>
+                <p>"The team at Elegant Classics made renting a classic car a breeze. Their customer service was top-notch, and the car was in pristine condition. Highly recommend!"</p>
+                <hr>
+                <img src="unknown.jpg" alt="Client 1">
+                <p class="name">Raj Verma</p>
+            </div>
+            
+            <div class="card">
+                <i class="ri-chat-3-line"></i>
+                <p>"A fantastic experience from start to finish. The booking process was smooth, and the car exceeded our expectations. Will definitely be back!"</p>
+                <hr>
+                <img src="unknown.jpg" alt="Client 2">
+                <p class="name">Mandeep Dhillon</p>
+            </div>
+          
+            <div class="card">
+                <i class="ri-chat-3-line"></i>
+                <p>"Elegant Classics offered an exceptional selection of classic cars. The service was friendly, and the vehicle was well-maintained. Five stars!"</p>
+                <hr>
+                <img src="unknown.jpg" alt="Client 3">
+                <p class="name">Tanya Rai</p>
+            </div>
+            
+            <div class="card">
+                <i class="ri-chat-3-line"></i>
+                <p>"The perfect choice for classic car enthusiasts. Great service, beautiful cars, and a smooth rental process. Highly recommended!"</p>
+                <hr>
+                <img src="unknown.jpg" alt="Client 4">
+                <p class="name">Yashpal Yadav</p>
+            </div>
+            
+            <div class="card">
+                <i class="ri-chat-3-line"></i>
+                <p>"From the initial inquiry to the return of the car, everything was handled professionally. The classic car we rented was stunning. Will use again!"</p>
+                <hr>
+                <img src="unknown.jpg" alt="Client 5">
+                <p class="name">Ranvinder Saini</p>
+            </div>
+            
+            
+                
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="phone-contact">
+            <span><i class="ri-phone-fill"></i> +91-987654321</span>
+        </div>
+        
+        <div class="contact-form-container">
+            <h2>Get in Touch</h2>
+            <form id="contact-form" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+            <button class="cta-button" onclick="window.location.href='gallery.html';">Explore Our Cars</button>
+        </div>
+    </div>
+
+    <footer>
+      
+        <div class="footer__col">
+          <h4>Follow Us</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="#"><i class="ri-facebook-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-twitter-fill"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="ri-linkedin-fill"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Elegant-Classics. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+        // Logo Slideshow
+   
+        
+        document.querySelectorAll('nav a').forEach(anchor => {
+            const href = anchor.getAttribute('href');
+
+            if (href.startsWith('#')) { // Only apply smooth scroll to internal links
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+
+        
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submission Alert
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Blog - Elegant Classics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--container-color);
+    z-index: 200;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .logo img {
+    height: 40px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between the logo and text */
+}
+
+header .logo-name {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: 600;
+    color: #C4A484;
+}
+
+header nav {
+    flex: 1;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: var(--bg-color);
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: var(--second-color);
+}
+
+header .nav-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--container-color);
+        width: 100%;
+        display: none;
+    }
+
+    header nav.active ul {
+        display: flex;
+    }
+
+    header .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    header .nav-toggle i {
+        color: var(--bg-color);
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header .logo-name {
+        font-size: 1.2rem;
+    }
+}
+
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blog-post {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h2 {
+            color: #2f042e;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .blog-post p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .blog-post img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .author-bio {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .author-bio h3 {
+            color: #2f042e;
+            margin-top: 0;
+        }
+        .recent-posts {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .recent-posts h3 {
+            color: #2f042e;
+            margin-top: 0;
+        }
+        .recent-posts ul {
+            list-style: none;
+            padding: 0;
+        }
+        .recent-posts ul li {
+            margin-bottom: 10px;
+        }
+        .recent-posts ul li a {
+            color: #C4A484;
+            text-decoration: none;
+        }
+        .recent-posts ul li a:hover {
+            text-decoration: underline;
+        }
+        .comments-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .comments-section h3 {
+            color: #2f042e;
+            margin-top: 0;
+        }
+        .comment-form {
+            margin-bottom: 20px;
+        }
+        .comment-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .comment-form button {
+            background-color: #C4A484;
+            border: none;
+            color: #2f042e;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .comment-form button:hover {
+            background-color: #a89074;
+        }
+        footer {
+            background-color: #2f042e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #C4A484;
+            color: #2f042e;
+            border: none;
+            border-radius: 50%;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            display: none;
+        }
+        @media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: var(--container-color);
+        width: 100%;
+        display: none;
+    }
+
+    header nav.active ul {
+        display: flex;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header .login {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle i {
+        color: var(--bg-color);
+        font-size: 1.5rem;
+    }
+}
+        @media (max-width: 768px) {
+            
+            .container {
+                padding: 10px;
+            }
+            .blog-post h2 {
+                font-size: 24px;
+            }
+            .blog-post p {
+                font-size: 16px;
+            }
+            .author-bio, .recent-posts, .comments-section {
+                padding: 15px;
+            }
+            .comment-form input,
+            .comment-form textarea {
+                font-size: 14px;
+            }
+            .comment-form button {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 14px;
+            }
+            .blog-post h2 {
+                font-size: 20px;
+            }
+            .blog-post p {
+                font-size: 14px;
+            }
+            .comment-form input,
+            .comment-form textarea {
+                font-size: 12px;
+            }
+            .comment-form button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <a href="#" class="logo">
+                <img src="Untitled-removebg-preview.png" alt="Elegant-Classics Logo" />
+                <span class="logo-name">Elegant-Classics</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="gallery.html">Rent</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-toggle">
+                <i class="bx bx-menu"></i>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="blog-post">
+            <h2>Our Commitment to Quality</h2>
+            <p>At Elegant-Classics, we are dedicated to redefining the car rental experience with a commitment to quality, reliability, and customer satisfaction. Our mission is to provide you with a seamless and enjoyable journey from the moment you book your vehicle to the time you return it.</p>
+            <img src="about us.jpg" alt="Commitment">
+            <p>Your feedback is invaluable to us. We actively seek and listen to your suggestions to continuously improve our services. Your satisfaction drives our commitment to excellence, and we are always looking for ways to enhance your experience with us.</p>
+        </section>
+
+        <section class="blog-post">
+            <h2>Why Choose Us?</h2>
+            <p>At Elegant-Classics, we provide a superior car rental experience with a diverse fleet of well-maintained vehicles, transparent pricing, and exceptional customer service. Our easy online booking process, commitment to safety, and eco-friendly options set us apart. Choose us for unbeatable value, convenience, and quality every time you hit the road.</p>
+            <img src="why-choose-us.jpg" alt="Why Choose Us">
+            <p>Wide Selection  Transparent Pricing Exceptional Service</p>
+        </section>
+
+        <section class="author-bio">
+            <h3>About the Author</h3>
+            <p>[Your Name] is a passionate [Your Title/Role, e.g., car enthusiast, automotive writer, industry expert] with a deep love for the automotive world. With years of experience in [related field or industry], [Your Name] offers valuable insights and expertise on car rentals, vehicle maintenance, and travel tips. Through engaging content and detailed knowledge, [Your Name] aims to help readers make informed decisions and enjoy their journeys to the fullest.</p>
+        </section>
+
+        <section class="recent-posts">
+            <h3>Recent Posts</h3>
+            <ul>
+                <li><a href="#">The Evolution of Classic Cars</a></li>
+                <li><a href="#">Tips for Maintaining Your Classic Vehicle</a></li>
+                <li><a href="#">How to Choose the Perfect Classic Car Rental</a></li>
+            </ul>
+            <button id="load-more-posts">Load More Posts</button>
+        </section>
+
+        <section class="comments-section">
+            <h3>Leave a Comment</h3>
+            <div class="comment-form">
+                <label for="comment-name">Name:</label>
+                <input type="text" id="comment-name" placeholder="Your Name">
+
+                <label for="comment-message">Comment:</label>
+                <textarea id="comment-message" rows="4" placeholder="Your Comment"></textarea>
+
+                <button id="submit-comment">Submit Comment</button>
+            </div>
+            <div id="comments-list">
+                <!-- Comments will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Elegant Classics. All Rights Reserved.</p>
+    </footer>
+
+    <button id="back-to-top">&uarr;</button>
+
+    <script>
+        // JavaScript to handle comments and load more posts
+
+        document.getElementById('load-more-posts').addEventListener('click', function() {
+            const newPosts = [
+                { title: 'Understanding Classic Car Restoration', url: '#' },
+                { title: 'The Evolution of Muscle Cars', url: '#' },
+                { title: 'Tips for Maintaining Vintage Vehicles', url: '#' },
+            ];
+
+            const list = document.querySelector('.recent-posts ul');
+            newPosts.forEach(post => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="${post.url}">${post.title}</a>`;
+                list.appendChild(listItem);
+            });
+        });
+
+        document.getElementById('submit-comment').addEventListener('click', function() {
+            const name = document.getElementById('comment-name').value;
+            const message = document.getElementById('comment-message').value;
+
+            if (name && message) {
+                const commentList = document.getElementById('comments-list');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+                commentList.appendChild(newComment);
+
+                // Clear the form fields
+                document.getElementById('comment-name').value = '';
+                document.getElementById('comment-message').value = '';
+            } else {
+                alert('Please fill out both fields.');
+            }
+        });
+
+        const backToTopButton = document.getElementById('back-to-top');
+
+        // Show/hide button when scrolling
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when button is clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Sign In - Elegant Classics</title>
+    <style>
+        :root {
+            --primary-color: #2f042e;
+            --text-dark: #333;
+            --text-light: #666;
+            --extra-light: #F9F9F9;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --gradient: linear-gradient(to bottom, #EAF3E6, #F5F5DC);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('sign.webp') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #C4A484;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .header a {
+            color:#C4A484 ;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .header a img {
+            height: 80px;
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .header .nav__links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            flex-grow: 1;
+        }
+
+        .header .nav__links li {
+            margin: 0;
+        }
+
+        .header .nav__links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+
+        .header .nav__links a:hover {
+            color: var(--primary-color);
+        }
+
+        .signin-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            margin-top: 80px;
+        }
+
+        .signin-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .signin-form h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .signin-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #C4A484;
+            text-align: left;
+        }
+
+        .signin-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--text-light);
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #F9F9F9;
+        }
+
+        .signin-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            border: none;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .signin-form button:hover {
+            background-color: #7A9D08;
+            transform: translateY(-2px);
+        }
+
+        .signin-form .signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .signin-form .signup-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signin-form .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="Untitled-removebg-preview.png" alt="Elegant Classics Logo"> Elegant Classics
+        </a>
+    </header>
+
+    <div class="signin-container">
+        <div class="signin-form">
+            <h2>Sign In</h2>
+            <form id="signin-form">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="abc@example.com" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="********" required>
+
+                <button type="button" onclick="signIn()">Sign In</button>
+                <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function signIn() {
+            window.location.href = 'index.html'; // Redirect to index.html
+        }
+    </script>
+</body>
+
+</html>
